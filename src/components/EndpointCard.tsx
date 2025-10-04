@@ -11,8 +11,8 @@ const EndpointCard = ({ handleCopy, isCopied }: EndpointCardProps) => {
   "url": "https://example.com/avatar.png"
 }`;
 
-  const curlExample = `curl -L "${endpointUrl}?description=professional%20doctor" -o avatar.png`;
-  const fetchExample = `fetch("${endpointUrl}?description=professional%20doctor").then(r => r.blob()).then(b => {/* save blob as file */})`;
+  const curlExample = `curl -L &quot;${endpointUrl}?description=professional%20doctor&quot; -o avatar.png`;
+  const fetchExample = `fetch(&quot;${endpointUrl}?description=professional%20doctor&quot;).then(r =&gt; r.blob()).then(b =&gt; {/* save blob as file */})`;
 
   return (
     <div className="space-y-8 mb-20">
@@ -103,10 +103,10 @@ const EndpointCard = ({ handleCopy, isCopied }: EndpointCardProps) => {
               <code>
                 <span className="text-gray-600">{"{"}</span>
                 {"\n  "}
-                <span className="text-gray-700">"url"</span>
+                <span className="text-gray-700">&quot;url&quot;</span>
                 <span className="text-gray-600">:</span>
                 {" "}
-                <span className="text-gray-600">"https://example.com/avatar.png"</span>
+                <span className="text-gray-600">&quot;https://example.com/avatar.png&quot;</span>
                 {"\n"}
                 <span className="text-gray-600">{"}"}</span>
               </code>
