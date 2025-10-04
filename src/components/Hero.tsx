@@ -4,7 +4,7 @@ const Hero = () => (
   <div className="mb-20 relative text-center">
     <div className="inline-block px-4 py-1.5 bg-gray-100 border border-gray-200 text-gray-600 text-xs mb-8 relative">
       <AllCorners color="gray" />
-      <span className="relative z-10">VERSION 2.0 • STABLE</span>
+      <span className="relative z-10">VERSION 1.0 • STABLE</span>
     </div>
     <h2 className="text-6xl font-bold mb-8 tracking-tight text-black">
       API Documentation
