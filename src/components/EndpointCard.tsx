@@ -6,20 +6,66 @@ interface EndpointCardProps {
 }
 
 const EndpointCard = ({ handleCopy, isCopied }: EndpointCardProps) => {
+  const endpointUrl = `https://avatar-api-service.avatar-api.workers.dev/avatar`;
   const exampleCode = `{
   "url": "https://example.com/avatar.png"
 }`;
+
+  const curlExample = `curl -L "${endpointUrl}?description=professional%20doctor" -o avatar.png`;
+  const fetchExample = `fetch("${endpointUrl}?description=professional%20doctor").then(r => r.blob()).then(b => {/* save blob as file */})`;
 
   return (
     <div className="space-y-8 mb-20">
       <div className="border border-gray-200 bg-gray-50 relative p-10">
         <AllCorners color="gray" />
 
-        <div className="flex items-center gap-4 mb-8">
+        <div className="flex items-center gap-4 mb-4">
           <span className="px-4 py-1.5 bg-green-100 text-green-800 text-xs font-bold border border-green-300 relative">
             <span className="relative z-10">GET</span>
           </span>
-          <code className="text-black text-xl font-semibold">/api/avatar</code>
+          <div className="flex items-center gap-3 relative">
+            <code className="text-black text-xl font-semibold">{endpointUrl}</code>
+          </div>
+        </div>
+
+        <div className="mb-6">
+          <h4 className="text-sm text-gray-600 uppercase tracking-wider mb-4 font-semibold">Usage</h4>
+          <div className="space-y-4">
+            <div>
+              <h5 className="text-sm text-gray-700 font-semibold mb-2">Curl</h5>
+              <div className="relative border border-gray-200 bg-white overflow-hidden">
+                <AllCorners color="gray" />
+                <div className="flex items-center justify-between px-6 py-3 border-b border-gray-200 bg-gray-50">
+                  <span className="text-xs text-gray-600 font-semibold tracking-wider">Shell</span>
+                  <button
+                    onClick={() => handleCopy(curlExample)}
+                    className="text-xs px-4 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 border border-gray-400 transition-all font-semibold relative group">
+                    <span className="relative z-10">{isCopied ? "✓ Copied" : "Copy"}</span>
+                  </button>
+                </div>
+                <pre className="p-6 text-base overflow-x-auto bg-white">
+                  <code>{curlExample}</code>
+                </pre>
+              </div>
+            </div>
+            <div>
+              <h5 className="text-sm text-gray-700 font-semibold mb-2">Browser Fetch</h5>
+              <div className="relative border border-gray-200 bg-white overflow-hidden">
+                <AllCorners color="gray" />
+                <div className="flex items-center justify-between px-6 py-3 border-b border-gray-200 bg-gray-50">
+                  <span className="text-xs text-gray-600 font-semibold tracking-wider">JavaScript</span>
+                  <button
+                    onClick={() => handleCopy(fetchExample)}
+                    className="text-xs px-4 py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 border border-gray-400 transition-all font-semibold relative group">
+                    <span className="relative z-10">{isCopied ? "✓ Copied" : "Copy"}</span>
+                  </button>
+                </div>
+                <pre className="p-6 text-base overflow-x-auto bg-white">
+                  <code>{fetchExample}</code>
+                </pre>
+              </div>
+            </div>
+          </div>
         </div>
 
         <p className="text-gray-700 mb-8 leading-relaxed text-lg">

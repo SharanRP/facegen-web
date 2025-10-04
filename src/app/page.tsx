@@ -8,16 +8,31 @@ import LiveGeneration from "../components/LiveGeneration";
 export default function Home() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isCopied, setIsCopied] = useState(false);
-  const [avatars, setAvatars] = useState([
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=1",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=2",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=3",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=4",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=5",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=6",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=7",
-    "https://api.dicebear.com/7.x/avataaars/svg?seed=8"
-  ]);
+  const descriptions = [
+    "scientist boy",
+    "magician",
+    "space explorer",
+    "teacher",
+    "cowboy",
+    "rogue adventurer",
+    "astronaut",
+    "school girl",
+    "professional businessman",
+    "playful boy"
+  ];
+  const [avatars, setAvatars] = useState(
+    Array.from({ length: 8 }, (_, i) =>
+      i === 0 ? "" : `https://avatar-api-service.avatar-api.workers.dev/avatar?description=${encodeURIComponent(descriptions[i % descriptions.length])}`
+    )
+  );
+
+  const handleCustomDescription = (desc: string) => {
+    setAvatars(prev => {
+      const updated = [...prev];
+      updated[0] = `https://avatar-api-service.avatar-api.workers.dev/avatar?description=${encodeURIComponent(desc)}`;
+      return updated;
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,14 +44,14 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const randomIndex = Math.floor(Math.random() * 8);
-      const newSeed = Math.floor(Math.random() * 10000);
+      const randomIndex = Math.floor(Math.random() * 7) + 1; // 1..7
+      const randomDesc = descriptions[Math.floor(Math.random() * descriptions.length)];
       setAvatars(prev => {
         const updated = [...prev];
-        updated[randomIndex] = `https://api.dicebear.com/7.x/avataaars/svg?seed=${newSeed}`;
+        updated[randomIndex] = `https://avatar-api-service.avatar-api.workers.dev/avatar?description=${encodeURIComponent(randomDesc)}`;
         return updated;
       });
-    }, 2000);
+  }, 5000);
     return () => clearInterval(interval);
   }, []);
 
@@ -56,7 +71,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto">
           <Hero />
           <EndpointCard handleCopy={handleCopy} isCopied={isCopied} />
-          <LiveGeneration avatars={avatars} />
+          <LiveGeneration avatars={avatars} onCustomDescription={handleCustomDescription} />
         </div>
       </main>
     </div>
