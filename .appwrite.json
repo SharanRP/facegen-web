@@ -1,0 +1,9 @@
+{
+  "projectId": "YOUR_PROJECT_ID",
+  "projectName": "Avatar API",
+  "settings": {
+    "buildCommand": "npm install && npm run build",
+    "outputDirectory": "out",
+    "installCommand": "npm install"
+  }
+}

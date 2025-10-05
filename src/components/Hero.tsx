@@ -12,6 +12,14 @@ const Hero = () => (
     <p className="text-gray-600 text-xl mx-auto max-w-2xl leading-relaxed">
       Generate AI-powered avatars with a simple REST API. Build custom profile pictures, game characters, and more with our powerful endpoint.
     </p>
+    <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg mx-auto max-w-3xl relative">
+      <AllCorners color="blue" />
+      <div className="relative z-10">
+        <p className="text-blue-900 text-sm leading-relaxed">
+          <span className="font-semibold">🚧 We're building something awesome!</span> If you don't see your desired image right away, don't worry—we're storing your request and our workers are generating it in the background. We'll serve it to you in future requests. Thanks for your patience! 
+        </p>
+      </div>
+    </div>
   </div>
 );
 
