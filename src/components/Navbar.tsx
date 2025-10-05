@@ -11,10 +11,12 @@ const Navbar = ({ isScrolled }: NavbarProps) => (
         <AllCorners color="gray" />
         <div className="flex items-center gap-8">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-black flex items-center justify-center relative">
-              <span className="text-white font-bold text-sm relative z-10">AI</span>
-            </div>
-            <span className="text-lg font-bold tracking-tight text-black">Avatar Generator</span>
+            <img
+              src="/android-chrome-192x192.png"
+              alt="FaceGen.io Logo"
+              className="w-8 h-8 rounded-lg"
+            />
+            <span className="text-lg font-bold tracking-tight text-black">FaceGen.io</span>
           </div>
           <div className="flex gap-6 text-sm">
             <span className="text-black cursor-pointer hover:text-gray-600 transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-px after:bg-black">Docs</span>

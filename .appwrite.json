@@ -1,9 +1,11 @@
 {
-  "projectId": "YOUR_PROJECT_ID",
+  "projectId": "68e188fc00129fba9bd5",
   "projectName": "FaceGen.io",
+  "functions": [],
   "settings": {
     "buildCommand": "npm install && npm run build",
     "outputDirectory": "out",
-    "installCommand": "npm install"
+    "installCommand": "npm install",
+    "adapter": "static"
   }
 }

@@ -9,15 +9,29 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "FaceGen - AI Avatar Generator API",
+  title: "FaceGen.io - AI Avatar Generator API",
   description: "Generate unique AI-powered avatars based on text descriptions. Our API is simple to use and provides high-quality avatars in seconds.",
   keywords: "AI, avatar, generator, API, documentation, text to image, machine learning, FaceGen",
-  authors: [{ name: "FaceGen" }],
+  authors: [{ name: "FaceGen.io" }],
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [
+      { rel: "android-chrome-192x192", url: "/android-chrome-192x192.png" },
+      { rel: "android-chrome-512x512", url: "/android-chrome-512x512.png" },
+    ],
+  },
+  manifest: "/site.webmanifest",
   openGraph: {
-    title: "FaceGen - AI Avatar Generator API",
+    title: "FaceGen.io - AI Avatar Generator API",
     description: "Generate unique AI-powered avatars based on text descriptions. Our API is simple to use and provides high-quality avatars in seconds.",
     url: "https://example.com", // Replace with your actual domain
-    siteName: "FaceGen",
+    siteName: "FaceGen.io",
     images: [
       {
         url: "https://example.com/og-image.png", // Replace with your actual OG image URL
