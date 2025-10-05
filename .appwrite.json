@@ -1,6 +1,6 @@
 {
   "projectId": "YOUR_PROJECT_ID",
-  "projectName": "Avatar API",
+  "projectName": "FaceGen.io",
   "settings": {
     "buildCommand": "npm install && npm run build",
     "outputDirectory": "out",

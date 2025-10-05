@@ -9,15 +9,15 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "AI Avatar Generator - API Documentation",
+  title: "FaceGen - AI Avatar Generator API",
   description: "Generate unique AI-powered avatars based on text descriptions. Our API is simple to use and provides high-quality avatars in seconds.",
-  keywords: "AI, avatar, generator, API, documentation, text to image, machine learning",
-  authors: [{ name: "AI Avatar Generator" }],
+  keywords: "AI, avatar, generator, API, documentation, text to image, machine learning, FaceGen",
+  authors: [{ name: "FaceGen" }],
   openGraph: {
-    title: "AI Avatar Generator - API Documentation",
+    title: "FaceGen - AI Avatar Generator API",
     description: "Generate unique AI-powered avatars based on text descriptions. Our API is simple to use and provides high-quality avatars in seconds.",
     url: "https://example.com", // Replace with your actual domain
-    siteName: "AI Avatar Generator",
+    siteName: "FaceGen",
     images: [
       {
         url: "https://example.com/og-image.png", // Replace with your actual OG image URL

@@ -1,5 +1,5 @@
 import AllCorners from './AllCorners';
-
+import Image from 'next/image';
 import { useState } from 'react';
 
 interface LiveGenerationProps {
@@ -43,10 +43,12 @@ const LiveGeneration = ({ avatars, onCustomDescription }: LiveGenerationProps) =
                   onMouseEnter={() => setEditing(true)}
                 >
                   {avatar ? (
-                    <img
+                    <Image
                       src={avatar}
                       alt={`Avatar ${i + 1}`}
                       className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                      width={500}
+                      height={500}
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">
@@ -74,10 +76,12 @@ const LiveGeneration = ({ avatars, onCustomDescription }: LiveGenerationProps) =
                 </div>
               ) : (
                 <>
-                  <img
+                  <Image
                     src={avatar}
                     alt={`Avatar ${i + 1}`}
                     className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110"
+                    width={500}
+                    height={500}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 </>

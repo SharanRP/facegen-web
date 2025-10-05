@@ -1,4 +1,18 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FaceGen
+
+AI-powered avatar generation API documentation and landing page.
+
+## About
+
+FaceGen.io provides a simple REST API for generating unique AI-powered avatars based on text descriptions. Create custom profile pictures, game characters, and more with our powerful endpoint.
+
+## Features
+
+- 🚀 Simple REST API
+- 🤖 AI-powered avatar generation
+- 📚 Comprehensive documentation
+- 🎨 Customizable descriptions
+- ⚡ Fast generation
 
 ## Getting Started
 
@@ -16,7 +30,15 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## API Usage
+
+```bash
+curl "https://avatar-api-service.avatar-api.workers.dev/avatar?description=professional%20doctor"
+```
+
+## Deployment
+
+This project is configured for static export and can be deployed to any static hosting service like Vercel, Netlify, or Appwrite Pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
