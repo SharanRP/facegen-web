@@ -1,4 +1,4 @@
-# FaceGen
+# FaceGen.io
 
 AI-powered avatar generation API documentation and landing page.
 
@@ -6,29 +6,23 @@ AI-powered avatar generation API documentation and landing page.
 
 FaceGen.io provides a simple REST API for generating unique AI-powered avatars based on text descriptions. Create custom profile pictures, game characters, and more with our powerful endpoint.
 
+## How it works (brief)
+
+FaceGen uses two cooperating services:
+
+- **avatar-generation** (https://github.com/SharanRP/avatar-generation)
+  - Responsible for creating images on demand. When a request arrives and the semantic match score is below a threshold (for example, < 60%), this service generates a new image for the request.
+
+- **app-hack** (https://github.com/SharanRP/app-hack)
+  - Exposes the public API that your clients call. It routes requests to the avatar-generation service when needed, stores/queues requests for background generation, and returns results to callers.
+
+Together these services let FaceGen respond quickly for high-confidence matches and generate new avatars asynchronously for lower-confidence requests, then serve them on subsequent requests.
+
 ## Features
 
 - 🚀 Simple REST API
 - 🤖 AI-powered avatar generation
-- 📚 Comprehensive documentation
 - 🎨 Customizable descriptions
-- ⚡ Fast generation
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## API Usage
 
@@ -39,20 +33,3 @@ curl "https://avatar-api-service.avatar-api.workers.dev/avatar?description=profe
 ## Deployment
 
 This project is configured for static export and can be deployed to any static hosting service like Vercel, Netlify, or Appwrite Pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
