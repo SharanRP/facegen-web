@@ -17,7 +17,7 @@ export default function Home() {
     "rogue adventurer",
     "astronaut",
     "school girl",
-    "professional businessman",
+    "student",
     "playful boy"
   ];
   const [avatars, setAvatars] = useState(
@@ -67,7 +67,7 @@ export default function Home() {
 
       <Navbar isScrolled={isScrolled} />
 
-      <main className="relative pt-40 pb-20 px-6">
+      <main className="relative pt-24 sm:pt-32 md:pt-40 pb-12 sm:pb-20 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto">
           <Hero />
           <EndpointCard handleCopy={handleCopy} isCopied={isCopied} />
