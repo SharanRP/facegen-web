@@ -20,16 +20,18 @@ export default function Home() {
     "student",
     "playful boy"
   ];
+  const baseUrl = process.env.NEXT_PUBLIC_FACEGEN_BASE || '';
+  
   const [avatars, setAvatars] = useState(
     Array.from({ length: 8 }, (_, i) =>
-      i === 0 ? "" : `https://avatar-api-service.avatar-api.workers.dev/avatar?description=${encodeURIComponent(descriptions[i % descriptions.length])}`
+      i === 0 ? "" : `${baseUrl}/${descriptions[i % descriptions.length].replace(/\s+/g, '-')}`
     )
   );
 
   const handleCustomDescription = (desc: string) => {
     setAvatars(prev => {
       const updated = [...prev];
-      updated[0] = `https://avatar-api-service.avatar-api.workers.dev/avatar?description=${encodeURIComponent(desc)}`;
+      updated[0] = `${baseUrl}/${desc.replace(/\s+/g, '-')}`;
       return updated;
     });
   };
@@ -48,12 +50,12 @@ export default function Home() {
       const randomDesc = descriptions[Math.floor(Math.random() * descriptions.length)];
       setAvatars(prev => {
         const updated = [...prev];
-        updated[randomIndex] = `https://avatar-api-service.avatar-api.workers.dev/avatar?description=${encodeURIComponent(randomDesc)}`;
+        updated[randomIndex] = `${baseUrl}/${randomDesc.replace(/\s+/g, '-')}`;
         return updated;
       });
   }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [baseUrl]);
 
   const handleCopy = (text: string) => {
     navigator.clipboard.writeText(text);

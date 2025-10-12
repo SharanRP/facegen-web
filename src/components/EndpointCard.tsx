@@ -20,13 +20,13 @@ const EndpointCard = ({ handleCopy, isCopied }: EndpointCardProps) => {
     setCopiedKey(key);
     window.setTimeout(() => setCopiedKey((cur) => (cur === key ? null : cur)), 2000);
   };
-  const endpointUrl = `https://avatar-api-service.avatar-api.workers.dev/avatar`;
+  const baseUrl = (process.env.NEXT_PUBLIC_FACEGEN_BASE as string) || '';
 //   const exampleCode = `{
 //   "url": "https://example.com/avatar.png"
 // }`;
 
-  const curlExample = `curl -L "${endpointUrl}?description=professional%20doctor" -o avatar.png`;
-  const fetchExample = `fetch("${endpointUrl}?description=professional%20doctor").then(r => r.blob()).then(b => {/* save blob as file */})`;
+  const curlExample = `curl -L "${baseUrl}/professional-doctor" -o avatar.png`;
+  const fetchExample = `fetch("${baseUrl}/professional-doctor").then(r => r.blob()).then(b => {/* save blob as file */})`;
 
   return (
     <div className="space-y-6 sm:space-y-8 mb-12 sm:mb-20">
@@ -38,7 +38,7 @@ const EndpointCard = ({ handleCopy, isCopied }: EndpointCardProps) => {
             <span className="relative z-10">GET</span>
           </span>
           <div className="flex items-center gap-3 relative overflow-x-auto w-full">
-            <code className="text-black text-sm sm:text-base md:text-xl font-semibold break-all">{endpointUrl}</code>
+                  <code className="text-black text-sm sm:text-base md:text-xl font-semibold break-all">{baseUrl}/[description]</code>
           </div>
         </div>
 
@@ -108,13 +108,13 @@ const EndpointCard = ({ handleCopy, isCopied }: EndpointCardProps) => {
             <div className="flex items-center justify-between px-3 sm:px-6 py-2 sm:py-3 border-b border-gray-200 bg-gray-50">
               <span className="text-[10px] sm:text-xs text-gray-600 font-semibold tracking-wider">HTML</span>
               <button
-                onClick={() => doCopy('html', `<img src="${endpointUrl}?description=professional%20doctor" alt="Avatar" />`)}
+                onClick={() => doCopy('html', `<img src="${baseUrl}/professional-doctor" alt="Avatar" />`)}
                 className="text-[10px] sm:text-xs px-2 sm:px-4 py-1 sm:py-1.5 bg-gray-200 hover:bg-gray-300 text-gray-700 border border-gray-400 transition-all font-semibold relative group">
                 <span className="relative z-10">{copiedKey === 'html' ? "✓ Copied" : "Copy"}</span>
               </button>
             </div>
             <pre className="p-3 sm:p-6 text-xs sm:text-sm md:text-base overflow-x-auto bg-white">
-              <code>{`<img src="${endpointUrl}?description=professional%20doctor" alt="Avatar" />`}</code>
+              <code>{`<img src="${baseUrl}/professional-doctor" alt="Avatar" />`}</code>
             </pre>
           </div>
         </div>
