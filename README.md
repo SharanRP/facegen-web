@@ -29,7 +29,3 @@ Together these services let FaceGen respond quickly for high-confidence matches 
 ```bash
 curl "https://avatar-api-service.avatar-api.workers.dev/avatar?description=professional%20doctor"
 ```
-
-## Deployment
-
-This project is configured for static export and can be deployed to any static hosting service like Vercel, Netlify, or Appwrite Pages.
